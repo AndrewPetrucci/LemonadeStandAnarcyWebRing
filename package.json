@@ -1,0 +1,15 @@
+{
+  "name": "lemonade-stand-anarchy-webring",
+  "version": "1.0.0",
+  "description": "WebRing API for Lemonade Stand Anarchy",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "dependencies": {
+    "googleapis": "^128.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
