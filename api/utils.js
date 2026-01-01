@@ -28,8 +28,11 @@ async function getWebringData() {
       return [];
     }
 
-    // Extract URLs from the rows
-    return rows.map(row => row[0]).filter(url => url && url.trim() !== '');
+    // Extract URLs from the rows, ensuring each row exists and has data
+    return rows
+      .filter(row => row && row.length > 0 && row[0])
+      .map(row => row[0])
+      .filter(url => url.trim() !== '');
   } catch (error) {
     console.error('Error fetching webring data:', error);
     return null;
