@@ -38,16 +38,6 @@
             margin: 20px 0;
         }
 
-        #webring-nav-frame {
-            border: none;
-            width: 100%;
-            height: 120px;
-        }
-
-        .lemon {
-            font-size: 3em;
-        }
-
         footer {
             margin-top: 40px;
             color: white;
@@ -56,6 +46,16 @@
             background-size: cover;
             padding: 20px;
             border-radius: 15px;
+        }
+
+        #webring-nav-frame {
+            border: none;
+            width: 100%;
+            height: 120px;
+        }
+
+        .lemon {
+            font-size: 3em;
         }
 
         .character-images {
@@ -108,12 +108,24 @@
     <h2>When life gives you lemons, start a Stand!</h2>
 
     <div class="character-images">
-        <img alt="_Atrioc.png"
-            src="https://github.com/AndrewPetrucci/LemonadeStandAnarcyWebRing/blob/main/pictures/_Atrioc.png?raw=true">
-        <img alt="_Aiden.png"
-            src="https://github.com/AndrewPetrucci/LemonadeStandAnarcyWebRing/blob/main/pictures/_Aiden.png?raw=true">
-        <img alt="_Doug.png"
-            src="https://github.com/AndrewPetrucci/LemonadeStandAnarcyWebRing/blob/main/pictures/_Doug.png?raw=true">
+        <picture>
+            <source srcset="pictures/_Atrioc.png" type="image/png">
+            <img class="atrioc"
+                src="https://github.com/AndrewPetrucci/LemonadeStandAnarcyWebRing/blob/main/pictures/_Atrioc.png?raw=true"
+                alt="Atrioc">
+        </picture>
+        <picture>
+            <source srcset="pictures/_Aiden.png" type="image/png">
+            <img class="aiden"
+                src="https://github.com/AndrewPetrucci/LemonadeStandAnarcyWebRing/blob/main/pictures/_Aiden.png?raw=true"
+                alt="Aiden">
+        </picture>
+        <picture>
+            <source srcset="pictures/_Doug.png" type="image/png">
+            <img class="doug"
+                src="https://github.com/AndrewPetrucci/LemonadeStandAnarcyWebRing/blob/main/pictures/_Doug.png?raw=true"
+                alt="Doug">
+        </picture>
     </div>
 
     <div class="lemonade-stand">
