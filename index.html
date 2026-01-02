@@ -240,6 +240,22 @@
         <p>Part of the decentralized web revolution</p>
         <p>By the stans, for the stans</p>
     </footer>
+
+    <script>
+        // Hide spinners on clicks
+        const spinners = document.querySelectorAll('.neon-spinner');
+        const videoFrame = document.querySelector('.youtube-playlist');
+
+        console.log('Found spinners:', spinners.length);
+        console.log('Found video frame:', videoFrame);
+
+        // Hide spinners when hovering over video
+        videoFrame.addEventListener('mouseenter', function () {
+            console.log('Video hovered - hiding spinners');
+            spinners.forEach(spinner => spinner.style.display = 'none');
+        });
+
+    </script>
 </body>
 
 </html>
