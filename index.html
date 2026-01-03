@@ -197,6 +197,7 @@
     <h1>Lemonade Stand Anarchy WebRing</h1>
     <h2>When life gives you lemons, start a Stand!</h2>
 
+    <!-- you can add pictures to your github repository and then refrence them using the raw githubusercontent link. (use your username and project name) -->
     <div class="character-images">
         <img class="atrioc"
             src="https://raw.githubusercontent.com/AndrewPetrucci/LemonadeStandAnarcyWebRing/main/pictures/_Atrioc.png"
@@ -234,6 +235,7 @@
 
 
     <footer>
+        <!-- webring navigation.  DO NOT CHANGE -->
         <div class="webring-nav">
             <p>
                 <a href="/api/previous" class="webring-link">← Previous Stand</a>
@@ -243,18 +245,24 @@
                 <a href="/api/random" class="webring-link">Random Stand</a>
             </p>
         </div>
+
+        <!-- Custom footer. Ok to change -->
         <p>🍋 Powered by pure sugar, water, and rebellion 🍋</p>
         <p>Part of the decentralized web revolution</p>
         <p>By the stans, for the stans</p>
 
+        <!-- url to project repository -->
         <p> <a href="https://github.com/andrewpetrucci/LemonadeStandAnarcyWebRing">Project Github</a>
         </p>
     </footer>
 
     <script>
-        // Fetch CSV data on page load
+        //////////////////////////////////////////////// This decides what ring to look at ///////////////////////////////////////////////
+        const CSV_URL = 'https://raw.githubusercontent.com/AndrewPetrucci/LemonadeStandAnarcyWebRingApi/refs/heads/main/data.csv';
+        ///////////////////////////////////////////////// navigation script. DO  NOT CHANGE ///////////////////////////////////////////////
+        // Fetch CSV data on page load.
         window.addEventListener('DOMContentLoaded', () => {
-            fetch('https://raw.githubusercontent.com/AndrewPetrucci/LemonadeStandAnarcyWebRingApi/refs/heads/main/data.csv')
+            fetch(CSV_URL)
                 .then(response => response.text())
                 .then(data => {
                     // Parse CSV into array
@@ -284,6 +292,7 @@
                     // Handle navigation buttons
                     const prevButton = document.querySelector('a[href="/api/previous"]');
                     const nextButton = document.querySelector('a[href="/api/next"]');
+                    const randomButton = document.querySelector('a[href="/api/random"]');
 
                     if (currentIndex === -1) {
                         // Current URL not found - set to first and last items
@@ -302,12 +311,27 @@
                         nextButton.href = csvArray[nextIndex].url || csvArray[nextIndex].URL;
                         console.log('Previous index:', prevIndex, 'Next index:', nextIndex);
                     }
+
+                    // Handle random button - select a random URL that is not the current stand
+                    if (csvArray.length > 1) {
+                        let randomIndex;
+                        do {
+                            randomIndex = Math.floor(Math.random() * csvArray.length);
+                        } while (randomIndex === currentIndex && currentIndex !== -1);
+                        randomButton.href = csvArray[randomIndex].url || csvArray[randomIndex].URL;
+                        console.log('Random index:', randomIndex);
+                    } else if (csvArray.length === 1) {
+                        randomButton.href = csvArray[0].url || csvArray[0].URL;
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching CSV:', error);
                 });
         });
+    </script>
 
+    <script>
+        ///////////////////////////////////////////////// Your scripts go here ///////////////////////////////////////////////
         // Hide spinners on clicks
         const spinners = document.querySelectorAll('.neon-spinner');
         const videoFrame = document.querySelector('.youtube-playlist');
